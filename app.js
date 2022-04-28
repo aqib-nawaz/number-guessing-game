@@ -12,7 +12,7 @@ button.disabled = true;
 let onCategorySelect = () => {
     
     let categoryVal = category.value;
-    // console.log(typeof categoryVal)
+    // console.log(typeof categoryVal + " " + categoryVal )
 
     button.disabled = false;
 
@@ -30,5 +30,27 @@ let onCategorySelect = () => {
         turns.textContent = "";
         button.disabled = true;
     }
-}
+} 
 category.onchange = onCategorySelect;
+
+
+let showMessage = (value) => {
+    let enteredNumber = value;
+
+    if(enteredNumber == numberToGuess){
+        message.innerHTML = "You are correct !!! you win";
+        message.style.color = 'green';
+
+    } else if( enteredNumber > numberToGuess){
+        message.innerHTML = "wrong..!!! you are ahead, please comes down";
+        message.style.color = 'red';
+
+    } else if(enteredNumber < numberToGuess){
+        message.innerHTML = "wrong..!!! you are below, please goes up";
+        message.style.color = 'red';
+
+    } else {
+        message.innerHTML = "You entered invalid number";
+        message.style.color = 'gray';
+    }
+}
