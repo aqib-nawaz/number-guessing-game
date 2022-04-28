@@ -34,6 +34,7 @@ let onCategorySelect = () => {
 category.onchange = onCategorySelect;
 
 
+
 let showMessage = (value) => {
     let enteredNumber = value;
 
@@ -53,4 +54,27 @@ let showMessage = (value) => {
         message.innerHTML = "You entered invalid number";
         message.style.color = 'gray';
     }
+}
+
+
+
+let decrementTurn = () => {
+    turns.textContent--;
+
+    if(turns.textContent == 0){
+        message.innerHTML = "No turns left..!! <span class='lost' style='color:red'>Your Lost</span>";
+        message.style.color = '#F7B217';
+        button.disabled = true;
+    }
+
+}
+
+
+
+button.onclick = function () {
+    let inputNumber = document.getElementById('input').value;
+
+    showMessage(inputNumber)
+    decrementTurn()
+    document.getElementById('input').value ='';
 }
